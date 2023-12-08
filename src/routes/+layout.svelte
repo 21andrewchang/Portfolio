@@ -1,15 +1,7 @@
 <script>
 	import Header from './Header.svelte';
 	import './styles.css';
-	import ResumeModal from './ResumeModal.svelte';
 	import Footer from './Footer.svelte';
-	let isModalOpen = false;
-	function openModal() {
-		isModalOpen = true;
-	}
-	function closeModal() {
-		isModalOpen = false;
-	}
 </script>
 
 <div class="app">
@@ -17,11 +9,8 @@
 	<main>
 		<slot />
 	</main>
-	{#if isModalOpen}
-		<ResumeModal {closeModal} />
-	{/if}
 
-	<Footer {openModal} />
+	<Footer />
 </div>
 
 <style>

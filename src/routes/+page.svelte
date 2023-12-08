@@ -2,7 +2,7 @@
 </script>
 
 <svelte:head>
-	<title>Home</title>
+	<title>andrew ch.</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
@@ -13,5 +13,10 @@
 <style>
 	section {
 		height: 300px;
+	}
+	iframe {
+		width: 100%;
+		height: 100vh;
+		border: none; /* Remove the border */
 	}
 </style>

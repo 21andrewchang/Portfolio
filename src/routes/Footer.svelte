@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	export let openModal;
+	import ResumeModal from './ResumeModal.svelte';
 
+	let isModalOpen = false;
 	onMount(() => {
 		const emailElement = document.getElementById('email');
 		const phoneElement = document.getElementById('phone');
@@ -20,11 +21,14 @@
 		}
 		if (resumeElement) {
 			resumeElement.addEventListener('click', function () {
-				openModal();
+				isModalOpen = true;
 				console.log('resume');
 			});
 		}
 	});
+	function closeModal() {
+		isModalOpen = false;
+	}
 
 	function copyToClipboard(text: string): void {
 		navigator.clipboard
@@ -56,6 +60,9 @@
 		</ul>
 	</nav>
 </header>
+{#if isModalOpen}
+	<ResumeModal {closeModal} />
+{/if}
 
 <style>
 	header {
