@@ -11,8 +11,8 @@
 			<li aria-current={$page.url.pathname === '/about' ? 'page' : undefined}>
 				<a href="/about">projects.</a>
 			</li>
-			<li aria-current={$page.url.pathname.startsWith('/sverdle') ? 'page' : undefined}>
-				<a href="/sverdle">currently.</a>
+			<li aria-current={$page.url.pathname.startsWith('/currently') ? 'page' : undefined}>
+				<a href="/currently">currently.</a>
 			</li>
 		</ul>
 	</nav>
@@ -21,12 +21,10 @@
 <style>
 	header {
 		display: flex;
-		justify-content: center;
 	}
 
 	nav {
 		display: flex;
-		justify-content: center;
 	}
 
 	ul {
@@ -44,34 +42,27 @@
 
 	li {
 		position: relative;
+		padding-right: 30px;
 		height: 100%;
-	}
-
-	li[aria-current='page']::before {
-		--size: 6px;
-		content: '';
-		width: 0;
-		height: 0;
-		position: absolute;
-		top: 0;
-		left: calc(50% - var(--size));
-		border: var(--size) solid transparent;
 	}
 
 	nav a {
 		display: flex;
 		height: 100%;
 		align-items: center;
-		padding: 0 0.5rem;
-		color: var(--color-text);
-		font-weight: 700;
-		font-size: 0.8rem;
+		color: rgba(256, 256, 256, 0.3);
+		font-weight: 400;
+		font-size: 18px;
 		letter-spacing: 0.1em;
 		text-decoration: none;
 		transition: color 0.2s linear;
 	}
 
+	li[aria-current='page'] a {
+		color: rgba(256, 256, 256, 0.9);
+	}
+
 	a:hover {
-		color: #fff;
+		color: rgba(256, 256, 256, 0.9);
 	}
 </style>
