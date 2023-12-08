@@ -4,6 +4,9 @@
 	import ResumeModal from './ResumeModal.svelte';
 
 	let isModalOpen = false;
+	let showMessage = false;
+	let element = 'email';
+
 	onMount(() => {
 		const emailElement = document.getElementById('email');
 		const phoneElement = document.getElementById('phone');
@@ -11,12 +14,22 @@
 
 		if (phoneElement) {
 			phoneElement.addEventListener('click', function () {
+				element = 'PhoneNumber';
 				copyToClipboard('5109358199');
+				showMessage = true;
+				setTimeout(() => {
+					showMessage = false;
+				}, 3000); // Adjust the duration as needed
 			});
 		}
 		if (emailElement) {
 			emailElement.addEventListener('click', function () {
+				element = 'Email';
 				copyToClipboard('21andrewch@gmail.com');
+				showMessage = true;
+				setTimeout(() => {
+					showMessage = false;
+				}, 3000); // Adjust the duration as needed
 			});
 		}
 		if (resumeElement) {
@@ -26,6 +39,7 @@
 			});
 		}
 	});
+
 	function closeModal() {
 		isModalOpen = false;
 	}
@@ -43,8 +57,10 @@
 </script>
 
 <header>
-	<nav>
-		<ul>
+	<p class:show={showMessage}>{element} has been copied to clipboard</p>
+
+	<nav style="align-items: center;">
+		<ul style="list-style: none; display: flex; padding: 0; margin: 0;">
 			<li aria-current={$page.url.pathname === '/' ? 'page' : undefined}>
 				<a href="https://www.linkedin.com/in/andrew-chang-a88b58148/">LinkedIn</a>
 			</li>
@@ -60,6 +76,7 @@
 		</ul>
 	</nav>
 </header>
+
 {#if isModalOpen}
 	<ResumeModal {closeModal} />
 {/if}
@@ -67,7 +84,8 @@
 <style>
 	header {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: space-between;
+		align-items: center;
 	}
 
 	nav {
@@ -87,10 +105,20 @@
 		background-size: contain;
 	}
 
-	li {
-		position: relative;
-		padding-right: 0px;
+	header p {
+		display: flex;
 		height: 100%;
+		align-items: center;
+		padding: 0 0.5rem;
+		color: rgba(0, 0, 0);
+		font-weight: 400;
+		font-size: 10px;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		transition: color 0.2s linear;
+	}
+	.show {
+		color: #85f789;
 	}
 
 	nav a {
