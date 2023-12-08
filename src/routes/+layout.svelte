@@ -18,7 +18,7 @@
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		padding-top: 20vh;
+		padding-top: 40vh;
 		padding-left: 30vh;
 		padding-right: 30vh;
 		overflow: hidden;
