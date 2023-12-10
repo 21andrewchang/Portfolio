@@ -2,6 +2,11 @@
 	import Header from './Header.svelte';
 	import './styles.css';
 	import Footer from './Footer.svelte';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		document.body.style.overflow = 'hidden';
+	});
 </script>
 
 <div class="app">
