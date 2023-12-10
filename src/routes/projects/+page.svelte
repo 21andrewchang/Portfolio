@@ -1,10 +1,20 @@
 <script>
 	//bug where if you hover and use j and k to move theres two highlights
 	import { onMount } from 'svelte';
+	import NoteModal from '../NoteModal.svelte';
 
+	let isModalOpen = false;
+	function closeModal() {
+		isModalOpen = false;
+	}
 	let selectedProject = 1;
 	const projects = [
-		{ id: 1, name: 'FPGA Tetris', description: 'Description for FPGA Tetris...' },
+		{
+			id: 1,
+			name: 'FPGA Tetris',
+			description:
+				'I developed a Tetris game using SystemVerilog on an FPGA board. The game utilized a matrix-based approach to manage Tetrimino positioning and used clock cycles on the FPGA to progress the game. I implemented block movement, rotation, collision detection, and line clearing logic. By integrating the FPGA board with a VGA interface, the game was displayed in real-time on an external monitor. Controlling the movement of the Tetrimino was done through keyboard control, where I mapped key inputs to the movement in C. '
+		},
 		{
 			id: 2,
 			name: 'LeNet-5 Convolutional Layer Optimization',
@@ -14,7 +24,12 @@
 		{ id: 4, name: 'AI Language Tutor', description: 'Description for Project 4...' }
 	];
 	let disabled = false;
+	let data = projects[selectedProject];
 
+	function openModal() {
+		data = projects[selectedProject - 1];
+		isModalOpen = true;
+	}
 	onMount(() => {
 		function handleKeyPress(event) {
 			const key = event.key.toLowerCase();
@@ -23,6 +38,12 @@
 				selectedProject++;
 			} else if (key === 'k' && selectedProject > 1 && !disabled) {
 				selectedProject--;
+			} else if (key === 'enter') {
+				openModal();
+			} else if (key == -'escape') {
+				isModalOpen = false;
+			} else if (key === 'escape') {
+				isModalOpen = false;
 			}
 		}
 
@@ -49,7 +70,7 @@
 	{#each projects as project}
 		<div
 			class:selected={selectedProject === project.id}
-			on:click={() => (selectedProject = project.id)}
+			on:click={() => openModal()}
 			on:mouseenter={() => {
 				disabled = true;
 				selectedProject = project.id;
@@ -62,6 +83,10 @@
 		</div>
 	{/each}
 </section>
+
+{#if isModalOpen}
+	<NoteModal {closeModal} {data} />
+{/if}
 
 <style>
 	section {

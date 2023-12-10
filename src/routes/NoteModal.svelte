@@ -1,5 +1,6 @@
 <script>
 	export let closeModal;
+	export let data;
 
 	function close() {
 		closeModal();
@@ -19,7 +20,8 @@
 
 <div class="modal" id="modal">
 	<div class="modal-content">
-		<p>hello</p>
+		<p>{data.name}</p>
+		<p>{data.description}</p>
 	</div>
 </div>
 
@@ -28,7 +30,7 @@
 		position: fixed;
 		top: 0;
 		left: 0;
-		background: rgba(0, 0, 0, 0.5);
+		background: rgba(0, 0, 0, 0.9);
 		width: 100%;
 		height: 100%;
 		display: flex;
@@ -42,10 +44,6 @@
 		max-width: 100%;
 		max-height: 100%;
 		overflow: auto;
-	}
-
-	iframe {
-		width: 600px;
-		height: 800px;
+		background: rgba(0, 0, 0);
 	}
 </style>
