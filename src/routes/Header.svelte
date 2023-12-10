@@ -1,36 +1,38 @@
-<script>
-	import { page } from '$app/stores';
-
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores'; // Add this import
 
 	let pages = ['/', '/projects', '/currently'];
 	let pagePath = 0;
-	function navigateTo(path) {
+
+	function navigateTo(path: string) {
 		goto(path);
 	}
 
-	window.addEventListener('keydown', (event) => {
-		switch (event.key) {
-			case 'l':
-				if (pagePath == 2) {
-					pagePath = 0;
-				} else {
-					pagePath++;
-				}
-				navigateTo(pages[pagePath]);
-				break;
-			case 'h':
-				if (pagePath == 0) {
-					pagePath = 2;
-				} else {
-					pagePath--;
-				}
-				navigateTo(pages[pagePath]);
-				break;
-
-			default:
-				break;
-		}
+	onMount(() => {
+		window.addEventListener('keydown', (event) => {
+			switch (event.key) {
+				case 'l':
+					if (pagePath == 2) {
+						pagePath = 0;
+					} else {
+						pagePath++;
+					}
+					navigateTo(pages[pagePath]);
+					break;
+				case 'h':
+					if (pagePath == 0) {
+						pagePath = 2;
+					} else {
+						pagePath--;
+					}
+					navigateTo(pages[pagePath]);
+					break;
+				default:
+					break;
+			}
+		});
 	});
 </script>
 
