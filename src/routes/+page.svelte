@@ -14,9 +14,4 @@
 	section {
 		height: 300px;
 	}
-	iframe {
-		width: 100%;
-		height: 100vh;
-		border: none; /* Remove the border */
-	}
 </style>

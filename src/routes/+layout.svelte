@@ -6,10 +6,11 @@
 
 <div class="app">
 	<Header />
-	<main>
-		<slot />
-	</main>
-
+	<section>
+		<main>
+			<slot />
+		</main>
+	</section>
 	<Footer />
 </div>
 
@@ -32,5 +33,9 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
+	}
+
+	section {
+		height: 300px;
 	}
 </style>

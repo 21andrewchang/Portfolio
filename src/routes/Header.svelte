@@ -1,16 +1,17 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+
+	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores'; // Add this import
 
 	let pages = ['/', '/projects', '/currently'];
 	let pagePath = 0;
-
 	function navigateTo(path: string) {
 		goto(path);
 	}
 
 	onMount(() => {
+		// This code will run only in the browser, not during SSR
 		window.addEventListener('keydown', (event) => {
 			switch (event.key) {
 				case 'l':
@@ -29,6 +30,7 @@
 					}
 					navigateTo(pages[pagePath]);
 					break;
+
 				default:
 					break;
 			}
