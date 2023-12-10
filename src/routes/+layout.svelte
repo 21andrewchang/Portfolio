@@ -2,6 +2,25 @@
 	import Header from './Header.svelte';
 	import './styles.css';
 	import Footer from './Footer.svelte';
+
+	import { page } from '$app/stores';
+
+	window.addEventListener('keydown', (event) => {
+		// Check the pressed key
+		switch (event.key) {
+			case '1':
+				page.set({ path: '/' }); // Navigate to the home page
+				break;
+			case '2':
+				page.set({ path: '/projects' }); // Navigate to the projects page
+				break;
+			case '3':
+				page.set({ path: '/currently' }); // Navigate to the currently page
+				break;
+			default:
+				break;
+		}
+	});
 </script>
 
 <div class="app">

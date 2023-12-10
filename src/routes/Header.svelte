@@ -1,5 +1,37 @@
 <script>
 	import { page } from '$app/stores';
+
+	import { goto } from '$app/navigation';
+
+	let pages = ['/', '/projects', '/currently'];
+	let pagePath = 0;
+	function navigateTo(path) {
+		goto(path);
+	}
+
+	window.addEventListener('keydown', (event) => {
+		switch (event.key) {
+			case 'l':
+				if (pagePath == 2) {
+					pagePath = 0;
+				} else {
+					pagePath++;
+				}
+				navigateTo(pages[pagePath]);
+				break;
+			case 'h':
+				if (pagePath == 0) {
+					pagePath = 2;
+				} else {
+					pagePath--;
+				}
+				navigateTo(pages[pagePath]);
+				break;
+
+			default:
+				break;
+		}
+	});
 </script>
 
 <header>
