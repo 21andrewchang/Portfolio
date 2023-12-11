@@ -31,9 +31,13 @@
 	let disabled = false;
 	let data = projects[selectedProject];
 
-	function openModal() {
+	function toggleModal() {
 		data = projects[selectedProject - 1];
-		isModalOpen = true;
+		if (isModalOpen) {
+			isModalOpen = false;
+		} else {
+			isModalOpen = true;
+		}
 	}
 	onMount(() => {
 		function handleKeyPress(event) {
@@ -41,10 +45,12 @@
 
 			if (key === 'j' && selectedProject < projects.length && !disabled) {
 				selectedProject++;
+				data = projects[selectedProject - 1];
 			} else if (key === 'k' && selectedProject > 1 && !disabled) {
 				selectedProject--;
+				data = projects[selectedProject - 1];
 			} else if (key === 'enter') {
-				openModal();
+				toggleModal();
 			} else if (key == -'escape') {
 				isModalOpen = false;
 			} else if (key === 'escape') {
@@ -62,8 +68,8 @@
 </script>
 
 <svelte:head>
-	<title>projects</title>
-	<meta name="description" content="my projects" />
+	<title>thoughts</title>
+	<meta name="description" content="thoughts" />
 </svelte:head>
 
 <section>
@@ -71,7 +77,7 @@
 	{#each projects as project}
 		<div
 			class:selected={selectedProject === project.id}
-			on:click={() => openModal()}
+			on:click={() => toggleModal()}
 			on:mouseenter={() => {
 				disabled = true;
 				selectedProject = project.id;

@@ -7,7 +7,13 @@
 </svelte:head>
 
 <section>
-	<p>this is my portfolio :D</p>
+	<p>hi :) this is my text-based portfolio</p>
+
+	<p>
+		- currently a student at uiuc studying electrical engineering and working on software on the
+		side
+	</p>
+	<p>- enjoyer of clean design</p>
 </section>
 
 <style>
