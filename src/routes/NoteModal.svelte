@@ -46,6 +46,7 @@
 		justify-content: center;
 		align-items: center;
 		z-index: 1000;
+		backdrop-filter: blur(1px);
 	}
 
 	.modal-content {

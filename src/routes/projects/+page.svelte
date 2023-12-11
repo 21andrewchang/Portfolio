@@ -11,17 +11,24 @@
 	const projects = [
 		{
 			id: 1,
+			date: 'spr 23',
 			name: 'FPGA Tetris',
 			description:
 				'I developed a Tetris game using SystemVerilog on an FPGA board. The game utilized a matrix-based approach to manage Tetrimino positioning and used clock cycles on the FPGA to progress the game. I implemented block movement, rotation, collision detection, and line clearing logic. By integrating the FPGA board with a VGA interface, the game was displayed in real-time on an external monitor. Controlling the movement of the Tetrimino was done through keyboard control, where I mapped key inputs to the movement in C. '
 		},
 		{
 			id: 2,
+			date: 'wnt 23',
 			name: 'LeNet-5 Convolutional Layer Optimization',
 			description: 'Description for Project 2...'
 		},
-		{ id: 3, name: 'Interview Copilot', description: 'Description for Project 3...' },
-		{ id: 4, name: 'AI Language Tutor', description: 'Description for Project 4...' }
+		{
+			id: 3,
+			date: 'sum 23',
+			name: 'Interview Copilot',
+			description: 'Description for Project 3...'
+		},
+		{ id: 4, date: 'fa 23', name: 'AI Language Tutor', description: 'Description for Project 4...' }
 	];
 	let disabled = false;
 	let data = projects[selectedProject];
@@ -62,11 +69,7 @@
 </svelte:head>
 
 <section>
-	<p>
-		The following list of projects were made in my spare time or during my time at UIUC in various
-		courses. Projects include both hardware and software. Click a project to get an expanded view,
-		or figure out a different way to navigate ;)
-	</p>
+	<p>a list of projects made at school or in my free time</p>
 	{#each projects as project}
 		<div
 			class:selected={selectedProject === project.id}

@@ -12,19 +12,19 @@
 		{
 			id: 1,
 			date: 'dec 10 23',
-			name: 'journal entry 2',
+			name: 'Journal entry 2',
 			description: 'journal 2 stuff and other stuff and this and that lol'
 		},
 		{
 			id: 2,
 			date: 'nov 10 23',
-			name: 'journal entry 1',
+			name: 'Journal entry 1',
 			description: 'journal 1 stuff and other stuff and this and that lol'
 		},
 		{
 			id: 3,
 			date: 'jul 10 23',
-			name: 'thoughts on stuff',
+			name: 'Thoughts on stuff',
 			description: 'stuff is very stuff and i think a this and that about that and this'
 		}
 	];
