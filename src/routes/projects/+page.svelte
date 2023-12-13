@@ -13,22 +13,64 @@
 			id: 1,
 			date: 'spr 23',
 			name: 'FPGA Tetris',
-			description:
-				'I developed a Tetris game using SystemVerilog on an FPGA board. The game utilized a matrix-based approach to manage Tetrimino positioning and used clock cycles on the FPGA to progress the game. I implemented block movement, rotation, collision detection, and line clearing logic. By integrating the FPGA board with a VGA interface, the game was displayed in real-time on an external monitor. Controlling the movement of the Tetrimino was done through keyboard control, where I mapped key inputs to the movement in C. '
+			description: [
+				'- Developed Tetris game using SystemVerilog and ran on an FPGA board.',
+				'- Utilized a matrix-based approach for Tetrimino positioning.',
+				'- Implemented block movement, rotation, collision detection, and line clearing logic.',
+				'- Integrated FPGA board with VGA interface for real-time display on monitor.',
+				'- Implemented keyboard control mapping for Tetrimino movement.'
+			]
 		},
+
 		{
 			id: 2,
 			date: 'wnt 23',
-			name: 'LeNet-5 Convolutional Layer Optimization',
-			description: 'Description for Project 2...'
+			name: 'Voltage Regulated AC-DC Power Supply',
+			description: [
+				'- Main circuit components: zener diodes, op-amps, transistors (BJT)',
+				'- Designed and tested circuit on LTSpice',
+				'- Initial testing on breadboard then soldered to PCB',
+				'- Tested using transformer and signal generator',
+				'- Project provided insights into circuit design, soldering, and power supply efficiency.'
+			]
 		},
+
 		{
 			id: 3,
+			date: 'wnt 23',
+			name: 'LeNet-5 Convolutional Layer Optimization',
+			description: [
+				'- Enhanced LeNet-5 convolutional layer using CUDA for image classification',
+				'- Developed and optimized GPU convolution kernel for various dataset sizes',
+				'- Optimized GPU kernel: tiling/shared memory, FP16, Streams, input unrolling',
+				'- Utilized Nsight tools for in-depth performance analysis and gprof for profiling',
+				'- Gave insights to CUDA, performance optimization, and GPU programming'
+			]
+		},
+		{
+			id: 4,
 			date: 'sum 23',
 			name: 'Interview Copilot',
 			description: 'Description for Project 3...'
 		},
-		{ id: 4, date: 'fa 23', name: 'AI Language Tutor', description: 'Description for Project 4...' }
+		{
+			id: 5,
+			date: 'fal 23',
+			name: 'AI Language Tutor',
+			description: 'Description for Project 4...'
+		},
+		{
+			id: 6,
+			date: 'sum 23',
+			name: 'Twitter Clone',
+			description: [
+				'- Developed Twitter Clone to learn web development.',
+				'- Basic functionality for posting messages and user management.',
+				'- Used PlanetScale for message storage, Drizzle ORM, and Clerk for authentication.',
+				'- Organized users and posts in the database, enabling profile views of individual user posts.',
+				'- Gave insight towards web development database design and tech stacks'
+			]
+		}
 	];
 	let disabled = false;
 	let data = projects[selectedProject];
@@ -41,6 +83,7 @@
 			isModalOpen = true;
 		}
 	}
+
 	onMount(() => {
 		function handleKeyPress(event) {
 			const key = event.key.toLowerCase();

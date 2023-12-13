@@ -5,6 +5,7 @@
 	function close() {
 		closeModal();
 	}
+
 	import { onMount } from 'svelte';
 
 	onMount(() => {
@@ -25,7 +26,9 @@
 			<p style="color: rgba(256,256,256, 0.2)">{data.date ? data.date : ''}</p>
 		</div>
 
-		<p>{data.description}</p>
+		{#each data.description as item}
+			<p>{item}</p>
+		{/each}
 	</div>
 </div>
 
