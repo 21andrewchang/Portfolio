@@ -1,6 +1,6 @@
 <script>
 	export let closeModal;
-	import resume from '../lib/resume.pdf';
+	import resume from '../resume.pdf';
 
 	function close() {
 		closeModal();
