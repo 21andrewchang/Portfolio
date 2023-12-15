@@ -110,7 +110,7 @@
 		height: 100%;
 		align-items: center;
 		padding: 0 0.5rem;
-		color: rgba(0, 0, 0);
+		color: rgba(0, 0, 0, 0);
 		font-weight: 400;
 		font-size: 10px;
 		letter-spacing: 0.1em;
