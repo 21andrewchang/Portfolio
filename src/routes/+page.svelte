@@ -9,10 +9,8 @@
 <section>
 	<p>hi :) this is my portfolio</p>
 
-	<p>
-		- currently a student at uiuc studying electrical engineering and working on software on the
-		side
-	</p>
+	<p>- just graduated from uiuc w/ bs in electrical engineering</p>
+	<p>- currently working on my own projects</p>
 	<p>- enjoyer of clean design</p>
 </section>
 

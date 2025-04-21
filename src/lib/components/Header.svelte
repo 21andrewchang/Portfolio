@@ -4,7 +4,7 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 
-	let pages = ['/', '/projects', '/thoughts'];
+	let pages = ['/', '/projects', '/thoughts', '/blog'];
 	let pagePath = 0;
 	function navigateTo(path: string) {
 		goto(path);
@@ -15,7 +15,7 @@
 		window.addEventListener('keydown', (event) => {
 			switch (event.key) {
 				case 'l':
-					if (pagePath == 2) {
+					if (pagePath == 3) {
 						pagePath = 0;
 					} else {
 						pagePath++;
@@ -49,6 +49,9 @@
 			</li>
 			<li aria-current={$page.url.pathname.startsWith('/thoughts') ? 'page' : undefined}>
 				<a href="/thoughts">thoughts.</a>
+			</li>
+			<li aria-current={$page.url.pathname.startsWith('/blog') ? 'page' : undefined}>
+				<a href="/blog">blog.</a>
 			</li>
 		</ul>
 	</nav>

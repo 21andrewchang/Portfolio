@@ -1,7 +1,7 @@
 <script>
 	//bug where if you hover and use j and k to move theres two highlights
 	import { onMount } from 'svelte';
-	import NoteModal from '../NoteModal.svelte';
+	import NoteModal from '../../lib/components/NoteModal.svelte';
 
 	let isModalOpen = false;
 	function closeModal() {

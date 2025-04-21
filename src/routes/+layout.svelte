@@ -20,27 +20,20 @@
 </div>
 
 <style>
-	.app {
-		position: relative;
-		display: flex;
-		flex-direction: column;
-		padding-top: 25vh;
-		padding-left: 30vh;
-		padding-right: 30vh;
-		overflow: hidden;
+	html,
+	body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
 	}
 
-	main {
-		flex: 1;
+	.app {
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		max-width: 64rem;
-		margin: 0 auto;
+		max-width: 64rem; /* optional, limits width */
+		height: 100%; /* or set a specific height */
 		box-sizing: border-box;
-	}
-
-	section {
-		height: 300px;
+		justify-content: center;
 	}
 </style>
